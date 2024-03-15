@@ -1,16 +1,12 @@
-from flask_sqlalchemy import SQLAlchemy
+from ext import db
+from apps.models import BaseModel
 
-# 创建组件对象
-db = SQLAlchemy()
-
-class User(db.Model):
+class User(BaseModel):
     __tablename__="user"
-    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
     address = db.relationship('Address', backref='user',uselist=False)
 
-class Address(db.Model):
+class Address(BaseModel):
     __tablename__="address"
-    id = db.Column(db.Integer, primary_key=True)
     street = db.Column(db.String(50))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

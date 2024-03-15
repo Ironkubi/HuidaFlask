@@ -66,12 +66,11 @@
 
   > pip install flask-migrate
 
-* 运行命令
+* 迁移命令
 
-  > python app.py db init  
-    python app.py db migrate  
-    python app.py db upgrade  
-    python app.py runserver  
+  > python manage.py db init
+    python manage.py db migrate
+    python manage.py db upgrade
 
 ## 安装 PyMySQL
 
